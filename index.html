@@ -5,37 +5,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cryptex - Buy & Sell Digital Assets In The cryptex</title>
-
-  <!-- 
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-
-  <!-- 
-    - custom css link
-  -->
+  <title>TradeBro-Real time Stock Market Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+  <link rel="shortcut icon" href="./images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
-
-  <!-- 
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-  <!-- 
-    - #HEADER
-  -->
-
   <header class="header" data-header>
     <div class="container">
 
       <a href="#" class="logo">
-        <img src="./assets/images/logo.svg" width="32" height="32" alt="Platform logo">
+        <img src="./images/logo.png" width="55" alt="Platform logo">
         TradeBro
       </a>
 
@@ -74,23 +55,15 @@
         <span class="line line-2"></span>
         <span class="line line-3"></span>
       </button>
-
-      <a href="#" class="btn btn-outline">Dashboard</a>
+      <a href="signin.html"><i class="fa-solid fa-user"></i></a>
+      <a href="search.html" class="btn btn-outline">Dashboard</a>
 
     </div>
   </header>
-
-
-
-
-
+<!-- 
+main start -->
   <main>
     <article>
-
-      <!-- 
-        - #HERO
-      -->
-
       <section class="section hero" aria-label="hero" data-section>
         <div class="container">
 
@@ -107,15 +80,11 @@
           </div>
 
           <figure class="hero-banner">
-            <img src="./assets/images/hero-banner.png" width="570" height="448" alt="hero banner" class="w-100">
+            <img src="./images/OIP.webp" width="570" height="448" alt="hero banner" class="w-100">
           </figure>
 
         </div>
       </section>
-
-
-
-
 
       <!-- 
         - #TREND
@@ -172,8 +141,6 @@
                 <div class="trend-card">
 
                   <div class="card-title-wrapper">
-                    <img src="./assets/images/coin-1.svg" width="24" height="24" alt="company logo">
-
                     <a href="#" class="card-title">
                       Apple <span class="span">AAPL/USD</span>
                     </a>
@@ -194,8 +161,6 @@
                 <div class="trend-card active">
 
                   <div class="card-title-wrapper">
-                    <img src="./assets/images/coin-2.svg" width="24" height="24" alt="company logo">
-
                     <a href="#" class="card-title">
                       Tesla <span class="span">TSLA/USD</span>
                     </a>
@@ -216,7 +181,6 @@
                 <div class="trend-card">
 
                   <div class="card-title-wrapper">
-                    <img src="./assets/images/coin-3.svg" width="24" height="24" alt="company logo">
 
                     <a href="#" class="card-title">
                       Reliance <span class="span">RELIANCE/INR</span>
@@ -238,7 +202,6 @@
                 <div class="trend-card">
 
                   <div class="card-title-wrapper">
-                    <img src="./assets/images/coin-4.svg" width="24" height="24" alt="company logo">
 
                     <a href="#" class="card-title">
                       Infosys <span class="span">INFY/INR</span>
@@ -262,9 +225,6 @@
 
         </div>
       </section>
-
-
-
 
 
       <!-- 
@@ -346,8 +306,6 @@
 
                   <td class="table-data">
                     <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
                     </button>
                   </td>
 
@@ -355,7 +313,6 @@
 
                   <td class="table-data">
                     <div class="wrapper">
-                      <img src="./assets/images/coin-1.svg" width="20" height="20" alt="Apple logo" class="img">
 
                       <h3>
                         <a href="#" class="coin-name">Apple <span class="span">AAPL</span></a>
@@ -370,7 +327,6 @@
                   <td class="table-data market-cap">$3.01T</td>
 
                   <td class="table-data">
-                    <img src="./assets/images/chart-1.svg" width="100" height="40" alt="sparkline" class="chart">
                   </td>
 
                   <td class="table-data">
@@ -383,8 +339,6 @@
 
                   <td class="table-data">
                     <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
                     </button>
                   </td>
 
@@ -392,8 +346,6 @@
 
                   <td class="table-data">
                     <div class="wrapper">
-                      <img src="./assets/images/coin-2.svg" width="20" height="20" alt="Microsoft logo" class="img">
-
                       <h3>
                         <a href="#" class="coin-name">Microsoft <span class="span">MSFT</span></a>
                       </h3>
@@ -406,9 +358,7 @@
 
                   <td class="table-data market-cap">$3.40T</td>
 
-                  <td class="table-data">
-                    <img src="./assets/images/chart-2.svg" width="100" height="40" alt="sparkline" class="chart">
-                  </td>
+                  <td class="table-data"><i class="fa-solid fa-chart-line"></i></td>
 
                   <td class="table-data">
                     <button class="btn btn-outline">Details</button>
@@ -420,8 +370,6 @@
 
                   <td class="table-data">
                     <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
                     </button>
                   </td>
 
@@ -429,7 +377,6 @@
 
                   <td class="table-data">
                     <div class="wrapper">
-                      <img src="./assets/images/coin-3.svg" width="20" height="20" alt="Tesla logo" class="img">
 
                       <h3>
                         <a href="#" class="coin-name">Tesla <span class="span">TSLA</span></a>
@@ -444,7 +391,6 @@
                   <td class="table-data market-cap">$780.2B</td>
 
                   <td class="table-data">
-                    <img src="./assets/images/chart-1.svg" width="100" height="40" alt="sparkline" class="chart">
                   </td>
 
                   <td class="table-data">
@@ -457,8 +403,6 @@
 
                   <td class="table-data">
                     <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
                     </button>
                   </td>
 
@@ -466,7 +410,6 @@
 
                   <td class="table-data">
                     <div class="wrapper">
-                      <img src="./assets/images/coin-4.svg" width="20" height="20" alt="Reliance logo" class="img">
 
                       <h3>
                         <a href="#" class="coin-name">Reliance <span class="span">RELIANCE</span></a>
@@ -481,7 +424,7 @@
                   <td class="table-data market-cap">₹18.7T</td>
 
                   <td class="table-data">
-                    <img src="./assets/images/chart-2.svg" width="100" height="40" alt="sparkline" class="chart">
+                   
                   </td>
 
                   <td class="table-data">
@@ -494,8 +437,7 @@
 
                   <td class="table-data">
                     <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
+                     
                     </button>
                   </td>
 
@@ -503,7 +445,7 @@
 
                   <td class="table-data">
                     <div class="wrapper">
-                      <img src="./assets/images/coin-5.svg" width="20" height="20" alt="Infosys logo" class="img">
+                   
 
                       <h3>
                         <a href="#" class="coin-name">Infosys <span class="span">INFY</span></a>
@@ -518,7 +460,7 @@
                   <td class="table-data market-cap">₹7.1T</td>
 
                   <td class="table-data">
-                    <img src="./assets/images/chart-1.svg" width="100" height="40" alt="sparkline" class="chart">
+                
                   </td>
 
                   <td class="table-data">
@@ -531,8 +473,7 @@
 
                   <td class="table-data">
                     <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
+                     
                     </button>
                   </td>
 
@@ -540,8 +481,7 @@
 
                   <td class="table-data">
                     <div class="wrapper">
-                      <img src="./assets/images/coin-6.svg" width="20" height="20" alt="HDFC Bank logo" class="img">
-
+                     
                       <h3>
                         <a href="#" class="coin-name">HDFC Bank <span class="span">HDFCBANK</span></a>
                       </h3>
@@ -555,7 +495,6 @@
                   <td class="table-data market-cap">₹11.9T</td>
 
                   <td class="table-data">
-                    <img src="./assets/images/chart-2.svg" width="100" height="40" alt="sparkline" class="chart">
                   </td>
 
                   <td class="table-data">
@@ -568,8 +507,6 @@
 
                   <td class="table-data">
                     <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
                     </button>
                   </td>
 
@@ -577,7 +514,6 @@
 
                   <td class="table-data">
                     <div class="wrapper">
-                      <img src="./assets/images/coin-7.svg" width="20" height="20" alt="ICICI Bank logo" class="img">
 
                       <h3>
                         <a href="#" class="coin-name">ICICI Bank <span class="span">ICICIBANK</span></a>
@@ -592,7 +528,6 @@
                   <td class="table-data market-cap">₹8.3T</td>
 
                   <td class="table-data">
-                    <img src="./assets/images/chart-1.svg" width="100" height="40" alt="sparkline" class="chart">
                   </td>
 
                   <td class="table-data">
@@ -605,8 +540,7 @@
 
                   <td class="table-data">
                     <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
+                  
                     </button>
                   </td>
 
@@ -614,7 +548,6 @@
 
                   <td class="table-data">
                     <div class="wrapper">
-                      <img src="./assets/images/coin-8.svg" width="20" height="20" alt="TCS logo" class="img">
 
                       <h3>
                         <a href="#" class="coin-name">TCS <span class="span">TCS</span></a>
@@ -629,7 +562,7 @@
                   <td class="table-data market-cap">₹14.1T</td>
 
                   <td class="table-data">
-                    <img src="./assets/images/chart-1.svg" width="100" height="40" alt="sparkline" class="chart">
+            
                   </td>
 
                   <td class="table-data">
@@ -669,11 +602,7 @@
             <li>
               <div class="instruction-card">
 
-                <figure class="card-banner">
-                  <img src="./assets/images/instruction-1.png" width="96" height="96" loading="lazy" alt="Step 1"
-                    class="img">
-                </figure>
-
+                
                 <p class="card-subtitle">Step 1</p>
 
                 <h3 class="h3 card-title">Explore Markets</h3>
@@ -687,11 +616,6 @@
 
             <li>
               <div class="instruction-card">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/instruction-2.png" width="96" height="96" loading="lazy" alt="Step 2"
-                    class="img">
-                </figure>
 
                 <p class="card-subtitle">Step 2</p>
 
@@ -707,10 +631,6 @@
             <li>
               <div class="instruction-card">
 
-                <figure class="card-banner">
-                  <img src="./assets/images/instruction-3.png" width="96" height="96" loading="lazy" alt="Step 3"
-                    class="img">
-                </figure>
 
                 <p class="card-subtitle">Step 3</p>
 
@@ -726,10 +646,7 @@
             <li>
               <div class="instruction-card">
 
-                <figure class="card-banner">
-                  <img src="./assets/images/instruction-4.png" width="96" height="96" loading="lazy" alt="Step 4"
-                    class="img">
-                </figure>
+            
 
                 <p class="card-subtitle">Step 4</p>
 
@@ -759,13 +676,13 @@
         <div class="container">
 
           <figure class="about-banner">
-            <img src="./assets/images/about-banner.png" width="748" height="436" loading="lazy" alt="about banner"
+            <img src="/images/favicon.svg" width="748" height="436" loading="lazy" alt="about banner"
               class="w-100">
           </figure>
 
           <div class="about-content">
 
-            <h2 class="h2 section-title">What Is Stocklytics</h2>
+            <h2 class="h2 section-title">What Is Trade Bro</h2>
 
             <p class="section-text">
               Experience comprehensive stock analysis: real‑time quotes, sectors, heatmaps, predictions, and backtesting.
@@ -852,28 +769,7 @@
               </li>
 
             </ul>
-
-            <div class="app-wrapper">
-              <a href="#">
-                <img src="./assets/images/googleplay.png" width="135" height="40" loading="lazy"
-                  alt="get it on google play">
-              </a>
-
-              <a href="#">
-                <img src="./assets/images/appstore.png" width="120" height="40" loading="lazy"
-                  alt="download on the app store">
-              </a>
-            </div>
-
           </div>
-
-          <div class="app-banner">
-            <img src="./assets/images/app-banner.png" width="618" height="526" loading="lazy" alt="app banner"
-              class="w-100">
-
-            <span class="span">Scan To Open</span>
-          </div>
-
         </div>
       </section>
 
@@ -896,7 +792,7 @@
         <div class="footer-brand">
 
           <a href="#" class="logo">
-            <img src="./assets/images/logo.svg" width="50" height="50" alt="Platform logo">
+            <img src="/images/logo.png" width="50" height="50" alt="Platform logo">
             TradeBro
           </a>
 
