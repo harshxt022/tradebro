@@ -34,57 +34,26 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            perspective: 1000px;
+            padding: 1rem;
+            animation: fadeIn 0.8s ease-out;
         }
 
-        /* --- Main container for the flipping card --- */
         .auth-container {
             width: 100%;
             max-width: 400px;
-            height: 500px;
-        }
-
-        .card-flipper {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.8s cubic-bezier(0.7, 0, 0.3, 1);
-        }
-
-        /* --- Hide checkbox, it's used to toggle state --- */
-        #flipper-toggle {
-            display: none;
-        }
-
-        /* --- Rotate the card when the checkbox is checked --- */
-        #flipper-toggle:checked ~ .card-flipper {
-            transform: rotateY(180deg);
-        }
-        
-        .auth-form {
-            position: absolute;
-            width: 100%;
-            height: 100%;
             padding: 2.5rem;
             background-color: var(--surface-color);
             border: 1px solid var(--border-color);
             border-radius: 16px;
             box-shadow: var(--card-shadow);
-            backface-visibility: hidden; /* This hides the back of the element when it's not facing the screen */
+            animation: pulseGlow 5s infinite ease-in-out;
+            transition: height 0.3s ease;
+        }
+
+        .auth-form {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            animation: pulseGlow 5s infinite ease-in-out;
-        }
-
-        .form-front {
-            /* Front side is default */
-        }
-
-        .form-back {
-            /* Back side is pre-rotated */
-            transform: rotateY(180deg);
         }
 
         .form-header {
@@ -126,7 +95,6 @@
             color: var(--text-secondary);
         }
         
-        /* --- Glowing effect on focus --- */
         .input-field:focus {
             outline: none;
             border-color: var(--accent-color);
@@ -159,24 +127,22 @@
             color: var(--text-secondary);
         }
 
-        .switch-form-text label {
+        .switch-form-text span {
             color: var(--accent-color);
             font-weight: 500;
             cursor: pointer;
             text-decoration: none;
         }
 
-        .switch-form-text label:hover {
+        .switch-form-text span:hover {
             text-decoration: underline;
         }
-
-        /* --- Entry Animation --- */
+        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* --- Pulsing Glow Animation for the form card --- */
         @keyframes pulseGlow {
             0% {
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(59, 130, 246, 0.1);
@@ -188,66 +154,73 @@
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(59, 130, 246, 0.1);
             }
         }
-
-        body {
-            animation: fadeIn 0.8s ease-out;
-        }
-
     </style>
 </head>
 <body>
 
     <div class="auth-container">
-        <input type="checkbox" id="flipper-toggle">
         
-        <div class="card-flipper">
-            <!-- Login Form (Front) -->
-            <div class="auth-form form-front">
-                <div class="form-header">
-                    <h1>Welcome to <span>TradeBro</span></h1>
-                    <p>Please sign in to your account</p>
-                </div>
-                <form>
-                    <div class="input-group">
-                        <input type="email" class="input-field" placeholder="Email Address" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="password" class="input-field" placeholder="Password" required>
-                    </div>
-                    <button type="submit" class="submit-btn">Login</button>
-                    <p class="switch-form-text">
-                        No account? <label for="flipper-toggle">Sign Up</label>
-                    </p>
-                </form>
+        <div class="auth-form" id="login-form">
+            <div class="form-header">
+                <h1>Welcome to <span>TradeBro</span></h1>
+                <p>Please sign in to your account</p>
             </div>
+            <form>
+                <div class="input-group">
+                    <input type="email" class="input-field" placeholder="Email Address" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" class="input-field" placeholder="Password" required>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+                <p class="switch-form-text">
+                    No account? <span id="show-signup-btn">Sign Up</span>
+                </p>
+            </form>
+        </div>
 
-            <!-- Signup Form (Back) -->
-            <div class="auth-form form-back">
-                <div class="form-header">
-                    <h1>Create Account</h1>
-                    <p>Get started with your free account</p>
-                </div>
-                <form>
-                    <div class="input-group">
-                        <input type="text" class="input-field" placeholder="Full Name" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="email" class="input-field" placeholder="Email Address" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="password" class="input-field" placeholder="Create Password" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="password" class="input-field" placeholder="Confirm Password" required>
-                    </div>
-                    <button type="submit" class="submit-btn">Create Account</button>
-                    <p class="switch-form-text">
-                        Already have an account? <label for="flipper-toggle">Login</label>
-                    </p>
-                </form>
+        <div class="auth-form" id="signup-form" style="display: none;">
+            <div class="form-header">
+                <h1>Create Account</h1>
+                <p>Get started with your free account</p>
             </div>
+            <form>
+                <div class="input-group">
+                    <input type="text" class="input-field" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" class="input-field" placeholder="Email Address" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" class="input-field" placeholder="Create Password" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" class="input-field" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit" class="submit-btn">Create Account</button>
+                <p class="switch-form-text">
+                    Already have an account? <span id="show-login-btn">Login</span>
+                </p>
+            </form>
         </div>
     </div>
 
+    <script>
+        const loginFormComponent = document.getElementById('login-form');
+        const signupFormComponent = document.getElementById('signup-form');
+        
+        const switchToSignup = document.getElementById('show-signup-btn');
+        const switchToLogin = document.getElementById('show-login-btn');
+        
+        switchToSignup.addEventListener('click', function() {
+            loginFormComponent.style.display = 'none';
+            signupFormComponent.style.display = 'flex';
+        });
+
+        switchToLogin.addEventListener('click', function() {
+            signupFormComponent.style.display = 'none';
+            loginFormComponent.style.display = 'flex';
+        });
+    </script>
 </body>
 </html>
