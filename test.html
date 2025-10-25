@@ -1,145 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TradeBro - Real Time Stock Market Dashboard</title>
+  <title>Stock Dashboard</title>
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="./images/favicon.svg" type="image/svg+xml">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1e293b;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #334155;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      color: #38bdf8;
+    }
+    .search-bar input {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+    main {
+      padding: 2rem;
+    }
+    .overview {
+      text-align: center;
+    }
+    .stock-info h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .current-price {
+      font-size: 2rem;
+      color: #22c55e;
+    }
+    .daily-change {
+      font-size: 1rem;
+      margin-top: 0.25rem;
+    }
+    .daily-change.positive { color: #22c55e; }
+    .daily-change.negative { color: #ef4444; }
 
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .stat-card {
+      background-color: #1e293b;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .stat-card h3 {
+      margin: 0.5rem 0;
+      color: #93c5fd;
+    }
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style1.css">
+    .chart-section {
+      margin-top: 3rem;
+      background-color: #1e293b;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .chart-section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #93c5fd;
+    }
+    canvas {
+      background: #0f172a;
+      border-radius: 8px;
+      padding: 1rem;
+    }
+  </style>
 </head>
-
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="./images/logo.png" width="40" alt="logo" class="me-2">
-        <span>TradeBro</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a href="#" class="nav-link active">Homepage</a></li>
-          <li class="nav-item"><a href="instruction.html" class="nav-link">Instructions</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Markets</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Analytics</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
-        </ul>
-        <a href="#" class="btn btn-outline-light ms-lg-3">Dashboard</a>
-      </div>
+  <header>
+    <h1>📊 Stock Dashboard</h1>
+    <div class="search-bar">
+      <input type="text" placeholder="Search stock symbol (e.g. AAPL)" />
     </div>
-  </nav>
+  </header>
 
-  <!-- HERO -->
-  <section class="py-5 bg-light text-center text-lg-start">
-    <div class="container d-flex flex-column flex-lg-row align-items-center">
-      <div class="col-lg-6">
-        <h1 class="display-5 fw-bold">Predict Stock Market with <span class="text-primary">TradeBro</span></h1>
-        <p class="lead mt-3">Real-time market prices, sector insights, and AI-powered predictions to make smarter
-          trading decisions.</p>
-        <a href="instruction.html" class="btn btn-primary btn-lg mt-3">Get Started</a>
+  <main>
+    <section class="overview">
+      <div class="stock-info">
+        <h1>TSLA <span>– Tesla, Inc.</span></h1>
+        <div class="current-price">$---</div>
+        <div class="daily-change">---</div>
       </div>
-      <div class="col-lg-6 mt-4 mt-lg-0 text-center">
-        <img src="./assets/images/hero-banner.png" class="img-fluid rounded shadow" alt="stock market dashboard">
-      </div>
-    </div>
-  </section>
 
-  <!-- STOCK TRENDS -->
-  <section class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Trending Stocks</h2>
-      <ul class="nav nav-pills justify-content-center mb-4 flex-wrap">
-        <li class="nav-item"><button class="nav-link active">Top Gainers</button></li>
-        <li class="nav-item"><button class="nav-link">Top Losers</button></li>
-        <li class="nav-item"><button class="nav-link">Tech</button></li>
-        <li class="nav-item"><button class="nav-link">Banking</button></li>
-        <li class="nav-item"><button class="nav-link">Pharma</button></li>
-      </ul>
-      <div class="row g-4">
-        <!-- Example Card -->
-        <div class="col-md-6 col-lg-3">
-          <div class="card shadow-sm h-100 text-center">
-            <div class="card-body">
-              <img src="./assets/images/coin-1.svg" width="40" alt="Apple logo">
-              <h5 class="mt-3">Apple <span class="text-muted">AAPL</span></h5>
-              <p class="fw-bold">USD 232.14</p>
-              <span class="badge bg-danger">-0.19%</span>
-            </div>
-          </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Open</h3>
+          <p class="value">$---</p>
         </div>
-        <!-- Repeat for others -->
+        <div class="stat-card">
+          <h3>High</h3>
+          <p class="value">$---</p>
+        </div>
+        <div class="stat-card">
+          <h3>Low</h3>
+          <p class="value">$---</p>
+        </div>
+        <div class="stat-card">
+          <h3>Volume</h3>
+          <p class="value">---</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- MARKET TABLE -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>Market Overview</h2>
-        <a href="#" class="btn btn-link">See All</a>
+    <section class="chart-section">
+      <h2>Price Chart (Last 60 Days)</h2>
+      <div class="chart-container" style="position: relative; height: 400px;">
+        <canvas id="stockChart"></canvas>
       </div>
-      <div class="table-responsive">
-        <table class="table table-hover align-middle">
-          <thead class="table-dark">
-            <tr>
-              <th>#</th>
-              <th>Company</th>
-              <th>Last Price</th>
-              <th>24h %</th>
-              <th>Market Cap</th>
-              <th>Trend</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td><img src="./assets/images/coin-1.svg" width="20" class="me-2"> Apple</td>
-              <td>$232.14</td>
-              <td class="text-danger">-0.19%</td>
-              <td>$3.01T</td>
-              <td><img src="./assets/images/chart-1.svg" width="100"></td>
-              <td><a href="#" class="btn btn-outline-primary btn-sm">Details</a></td>
-            </tr>
-            <!-- Repeat Rows -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-dark text-light py-4">
-    <div class="container text-center">
-      <p class="mb-1">&copy; 2025 TradeBro. All Rights Reserved.</p>
-      <div class="d-flex justify-content-center gap-3">
-        <a href="#" class="text-light"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="text-light"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="text-light"><i class="bi bi-linkedin"></i></a>
-      </div>
-    </div>
-  </footer>
+  <script>
+    const apiKey = "DVLFPS95X0JOJZML"; // 🔑 Replace with your Alpha Vantage key
+    const searchInput = document.querySelector(".search-bar input");
+    let chartInstance = null;
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    // Listen for Enter key press
+    searchInput.addEventListener("keypress", async (e) => {
+      if (e.key === "Enter") {
+        const symbol = searchInput.value.trim().toUpperCase();
+        if (!symbol) return alert("Please enter a stock symbol.");
+        await updateStockData(symbol);
+      }
+    });
+
+    async function updateStockData(symbol) {
+      try {
+        // 1️⃣ Fetch real-time stock quote
+        const quoteRes = await fetch(
+          `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`
+        );
+        const quoteData = await quoteRes.json();
+        const quote = quoteData["Global Quote"];
+
+        if (!quote || Object.keys(quote).length === 0) {
+          alert("No data found for symbol: " + symbol);
+          return;
+        }
+
+        // Extract and display key info
+        const price = parseFloat(quote["05. price"]).toFixed(2);
+        const changePercent = parseFloat(quote["10. change percent"]);
+        const changeColor = changePercent >= 0 ? "positive" : "negative";
+        const open = parseFloat(quote["02. open"]).toFixed(2);
+        const high = parseFloat(quote["03. high"]).toFixed(2);
+        const low = parseFloat(quote["04. low"]).toFixed(2);
+        const volume = parseInt(quote["06. volume"]).toLocaleString();
+
+        document.querySelector(".stock-info h1").innerHTML =
+          `${symbol} <span>– ${symbol}</span>`;
+        document.querySelector(".current-price").textContent = `$${price}`;
+        const changeElem = document.querySelector(".daily-change");
+        changeElem.textContent = `${changePercent > 0 ? "+" : ""}${changePercent.toFixed(2)}%`;
+        changeElem.className = `daily-change ${changeColor}`;
+
+        const statCards = document.querySelectorAll(".stat-card .value");
+        statCards[0].textContent = `$${open}`;
+        statCards[1].textContent = `$${high}`;
+        statCards[2].textContent = `$${low}`;
+        statCards[3].textContent = volume;
+
+        // 2️⃣ Fetch daily time series for chart
+        const dailyRes = await fetch(
+          `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${apiKey}`
+        );
+        const dailyData = await dailyRes.json();
+        const series = dailyData["Time Series (Daily)"];
+        if (!series) throw new Error("No chart data found");
+
+        const dates = Object.keys(series).reverse().slice(-60);
+        const prices = dates.map(date => parseFloat(series[date]["4. close"]));
+        renderChart(symbol, dates, prices);
+
+      } catch (error) {
+        console.error(error);
+        alert("Error fetching stock data. Please try again.");
+      }
+    }
+
+    function renderChart(symbol, labels, data) {
+      const ctx = document.getElementById("stockChart").getContext("2d");
+
+      if (chartInstance) chartInstance.destroy();
+
+      chartInstance = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: labels,
+          datasets: [{
+            label: `${symbol} Closing Price`,
+            data: data,
+            borderColor: "#3b82f6",
+            backgroundColor: "rgba(59,130,246,0.1)",
+            fill: true,
+            tension: 0.3
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: false,
+              title: { display: true, text: "Price (USD)" }
+            },
+            x: {
+              title: { display: true, text: "Date" }
+            }
+          },
+          plugins: {
+            legend: { display: true, labels: { color: "#B1B5C3" } }
+          }
+        }
+      });
+    }
+
+    // Default chart on load
+    updateStockData("TSLA");
+  </script>
 </body>
-
 </html>

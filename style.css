@@ -1,3 +1,19 @@
+/*-----------------------------------*\
+  #style.css
+\*-----------------------------------*/
+
+/** 
+ * copyrights 2022 codewithsadee
+ */
+
+
+
+
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
 :root {
 
   /**
@@ -69,6 +85,14 @@
   --radius-12: 12px;
   --radius-24: 24px;
 
+  /**
+   * transition
+   */
+
+  --transition-1: 0.25s ease;
+  --transition-2: 0.5s ease;
+  --transition-3: 1s ease;
+  --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
 
 }
 
@@ -147,9 +171,9 @@ body.active { overflow: hidden; }
 
 
 
-/*
+/*-----------------------------------*\
   #REUSED STYLE
-*/
+\*-----------------------------------*/
 
 .container { padding-inline: 15px; }
 
@@ -163,7 +187,7 @@ body.active { overflow: hidden; }
   font-weight: var(--fw-500);
   border: 1px solid var(--white);
   padding: 5px 15px;
-  /* transition: var(--transition-1); */
+  transition: var(--transition-1);
 }
 
 .btn-outline:is(:hover, :focus) {
@@ -189,10 +213,10 @@ body.active { overflow: hidden; }
   bottom: 0;
   right: -50px;
   background-image: var(--gradient);
-  /* transform: translateX(-100%); */
+  transform: translateX(-100%);
   opacity: 0;
   z-index: -1;
-  /* transition: var(--transition-2); */
+  transition: var(--transition-2);
 }
 
 .btn-primary:is(:hover, :focus)::after {
@@ -205,7 +229,7 @@ body.active { overflow: hidden; }
 [data-section] > * {
   transform: translateY(50px);
   opacity: 0;
-  /* transition: var(--transition-3); */
+  transition: var(--transition-3);
 }
 
 [data-section].active > * {
@@ -270,9 +294,9 @@ body.active { overflow: hidden; }
 
 
 
-/*
+/*-----------------------------------*\
   #HEADER
-*/
+\*-----------------------------------*/
 
 .header {
   position: absolute;
@@ -290,10 +314,10 @@ body.active { overflow: hidden; }
   background-color: var(--white);
   border-block-start: 1px solid var(--cultured);
   box-shadow: var(--shadow-1);
-  /* animation: slideIn 0.25s var(--cubic-out) forwards; */
+  animation: slideIn 0.25s var(--cubic-out) forwards;
 }
 
-/* @keyframes slideIn {
+@keyframes slideIn {
 
   0% {
     transform: translateY(0);
@@ -305,7 +329,7 @@ body.active { overflow: hidden; }
     background-color: var(--eerie-black-2);
   }
 
-} */
+}
 
 .header > .container {
   display: flex;
@@ -327,7 +351,7 @@ body.active { overflow: hidden; }
   width: 26px;
   height: 3px;
   background-color: var(--white);
-  /* transition: var(--transition-1); */
+  transition: var(--transition-1);
 }
 
 .nav-toggle-btn .line:not(:last-child) { margin-block-end: 4px; }
@@ -353,13 +377,13 @@ body.active { overflow: hidden; }
   max-height: 0;
   overflow: hidden;
   visibility: hidden;
-  /* transition: 0.25s var(--cubic-out); */
+  transition: 0.25s var(--cubic-out);
 }
 
 .navbar.active {
   max-height: calc(100vh - 63px);
   visibility: visible;
-  /* transition-duration: 0.5s; */
+  transition-duration: 0.5s;
 }
 
 .navbar-item:not(:last-child) { border-block-end: 1px solid var(--white_30); }
@@ -368,7 +392,7 @@ body.active { overflow: hidden; }
   color: var(--white);
   font-weight: var(--fw-700);
   padding: 12px 30px;
-  /* transition: var(--transition-1); */
+  transition: var(--transition-1);
 }
 
 .navbar-link:is(:hover, :focus, .active) { color: var(--blue-crayola); }
@@ -377,9 +401,9 @@ body.active { overflow: hidden; }
 
 
 
-/*
+/*-----------------------------------*\
   #HERO
-*/
+\*-----------------------------------*/
 
 .hero { padding-block: 150px 140px; }
 
@@ -394,9 +418,9 @@ body.active { overflow: hidden; }
 
 
 
-/*-
+/*-----------------------------------*\
   #TREND
-*/
+\*-----------------------------------*/
 
 .trend {
   background-color: var(--eerie-black-1);
@@ -426,7 +450,7 @@ body.active { overflow: hidden; }
   font-weight: var(--fw-700);
   padding: 7px 15px;
   border-radius: 50px;
-  /* transition: var(--transition-1); */
+  transition: var(--transition-1);
 }
 
 .trend-tab .tab-btn.active { background-color: var(--blue-crayola); }
@@ -439,7 +463,7 @@ body.active { overflow: hidden; }
 .trend-card {
   padding: 20px;
   border-radius: var(--radius-12);
-  /* transition: var(--transition-1); */
+  transition: var(--transition-1);
 }
 
 .trend-card:is(:hover, .active) {
@@ -457,7 +481,7 @@ body.active { overflow: hidden; }
   color: var(--white);
   font-size: var(--fs-7);
   font-weight: var(--fw-700);
-  /* transition: var(--transition-1); */
+  transition: var(--transition-1);
 }
 
 .trend-card .card-title:is(:hover, :focus) { color: var(--blue-crayola); }
@@ -487,9 +511,9 @@ body.active { overflow: hidden; }
 
 
 
-/*
+/*-----------------------------------*\
   #MARKET
-*/
+\*-----------------------------------*/
 
 .market {
   background-color: var(--eerie-black-1);
@@ -508,7 +532,7 @@ body.active { overflow: hidden; }
   position: relative;
   min-width: max-content;
   font-weight: var(--fw-700);
-  /* transition: var(--transition-1); */
+  transition: var(--transition-1);
 }
 
 .market .btn-link:is(:hover, :focus) { color: var(--blue-crayola); }
@@ -521,7 +545,7 @@ body.active { overflow: hidden; }
   width: 100%;
   height: 2px;
   background-color: var(--raisin-black);
-  /* transition: var(--transition-1); */
+  transition: var(--transition-1);
 }
 
 .market .btn-link:is(:hover, :focus)::after { background-color: var(--blue-crayola); }
@@ -574,7 +598,7 @@ body.active { overflow: hidden; }
 .market-table .table-row {
   font-size: var(--fs-5);
   border-block-end: 1px solid var(--raisin-black);
-  /* transition: var(--transition-1); */
+  transition: var(--transition-1);
 }
 
 .market-table .table-body .table-row:is(:hover, :focus-within) {
@@ -606,7 +630,7 @@ body.active { overflow: hidden; }
   display: flex;
   align-items: center;
   gap: 10px;
-  /* transition: var(--transition-1); */
+  transition: var(--transition-1);
 }
 
 .market-table .coin-name .span {
@@ -632,9 +656,9 @@ body.active { overflow: hidden; }
 
 
 
-/*
+/*-----------------------------------*\
   #INSTRUCTION
-*/
+\*-----------------------------------*/
 
 .instruction :is(.section-title, .section-text) { text-align: center; }
 
@@ -648,7 +672,7 @@ body.active { overflow: hidden; }
 
 .instruction-card { text-align: center; }
 
-/* .instruction-card .card-banner { transition: var(--transition-2); } */
+.instruction-card .card-banner { transition: var(--transition-2); }
 
 .instruction-card:hover .card-banner { transform: rotateY(1turn); }
 
@@ -674,9 +698,9 @@ body.active { overflow: hidden; }
 
 
 
-/*
+/*-----------------------------------*\
   #ABOUT
-*/
+\*-----------------------------------*/
 
 .about { background-color: var(--eerie-black-1); }
 
@@ -686,9 +710,9 @@ body.active { overflow: hidden; }
 
 
 
-/*
+/*-----------------------------------*\
   #APP
-*/
+\*-----------------------------------*/
 
 .app {
   overflow: hidden;
@@ -723,9 +747,9 @@ body.active { overflow: hidden; }
 
 
 
-/*
+/*-----------------------------------*\
   #FOOTER
-*/
+\*-----------------------------------*/
 
 .footer-top {
   background-color: var(--eerie-black-1);
@@ -763,7 +787,7 @@ address.footer-contact-link { max-width: 30ch; }
 
 .footer-link {
   color: var(--gainsboro);
-  /* transition: var(--transition-1); */
+  transition: var(--transition-1);
 }
 
 .footer-link:is(:hover, :focus) { color: var(--blue-crayola); }
@@ -791,7 +815,7 @@ address.footer-contact-link { max-width: 30ch; }
 
 .social-link {
   font-size: 18px;
-  /* transition: var(--transition-1); */
+  transition: var(--transition-1);
 }
 
 .social-link:is(:hover, :focus) { color: var(--blue-crayola); }
@@ -800,22 +824,24 @@ address.footer-contact-link { max-width: 30ch; }
 
 
 
-/*
+/*-----------------------------------*\
   #MEDIA QUERIES
--*/
+\*-----------------------------------*/
 
-
+/**
+ * responsive for larger than 575px screen
+ */
 
 @media (min-width: 575px) {
   
-  /*
-   CUSTOM PROPERTY
+  /**
+   * CUSTOM PROPERTY
    */
 
   :root {
 
-    /*
-      typography
+    /**
+     * typography
      */
 
     --fs-1: 4rem;
@@ -825,8 +851,8 @@ address.footer-contact-link { max-width: 30ch; }
 
 
 
-  /*
-   REUSED STYLE
+  /**
+   * REUSED STYLE
    */
 
   .container {
@@ -837,8 +863,8 @@ address.footer-contact-link { max-width: 30ch; }
 
 
 
-  /*
-    HERO
+  /**
+   * HERO
    */
 
   .hero-text { --fs-5: 2rem; }
@@ -849,7 +875,7 @@ address.footer-contact-link { max-width: 30ch; }
 
 
 
-/*
+/**
  * responsive for larger than 768px screen
  */
 
@@ -891,16 +917,16 @@ address.footer-contact-link { max-width: 30ch; }
 
 
 
-  /*
-    TREND
+  /**
+   * TREND
    */
 
   .trend-tab .tab-content { grid-template-columns: 1fr 1fr; }
 
 
 
-  /*
-    INSTRUCTION
+  /**
+   * INSTRUCTION
    */
 
   .instruction { overflow: hidden; }
@@ -942,7 +968,7 @@ address.footer-contact-link { max-width: 30ch; }
 
 
   /**
-    FOOTER
+   * FOOTER
    */
 
   .footer-top .container { grid-template-columns: repeat(3, 1fr); }
@@ -963,13 +989,13 @@ address.footer-contact-link { max-width: 30ch; }
 
 
 
-/*
-  responsive for larger than 992px screen
+/**
+ * responsive for larger than 992px screen
  */
 
 @media (min-width: 992px) {
 
-  /*
+  /**
    * REUSED STYLE
    */
 
@@ -978,7 +1004,7 @@ address.footer-contact-link { max-width: 30ch; }
   
 
   /**
-    HEADER
+   * HEADER
    */
 
   .header { padding-block: 5px; }
@@ -1015,7 +1041,7 @@ address.footer-contact-link { max-width: 30ch; }
 
 
   /**
-    HERO
+   * HERO
    */
 
   .hero .container {
@@ -1029,7 +1055,7 @@ address.footer-contact-link { max-width: 30ch; }
 
 
 
-  /*
+  /**
    * MARKET
    */
 
@@ -1037,8 +1063,8 @@ address.footer-contact-link { max-width: 30ch; }
 
 
 
-  /*
-   ABOUT
+  /**
+   * ABOUT
    */
 
   .about .container {
@@ -1052,8 +1078,8 @@ address.footer-contact-link { max-width: 30ch; }
 
 
 
-  /*
-    APP
+  /**
+   * APP
    */
 
   .app { padding-block: 0; }
@@ -1075,8 +1101,8 @@ address.footer-contact-link { max-width: 30ch; }
 
 
 
-/*
- responsive for larger than 1200px screen
+/**
+ * responsive for larger than 1200px screen
  */
 
 @media (min-width: 1200px) {
